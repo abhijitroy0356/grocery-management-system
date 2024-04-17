@@ -1,0 +1,78 @@
+
+*{
+    background-color: rgb(234, 197, 129);
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+.loginPage{
+    background-color: rgb(62, 13, 13);
+}
+.loginForm{
+    background-color: rgb(236, 179, 72);
+    color: aliceblue;
+}
+/* Dashboard.css */
+
+/* Custom styling for the toast notification */
+.toast-custom {
+    background-color: #007bff; /* Blue background color */
+    color: #fff; /* White text color */
+    font-size: 16px; /* Font size */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Box shadow for a subtle effect */
+  }
+.btnwork{
+    background-color: red;
+    color:whitesmoke;
+    border: none;
+    padding: 6.5px 15px;
+    font-size: 18px;
+}
+.btnwork:hover{
+    background-color: white;
+    color:red;
+    transition: 0.3s;
+}
+  
+
+/*for table css in category*/
+
+.styled-table {
+  background-color: #4c1130; /* Deep color for the table background */
+  color: #fff; /* White text color */
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+.styled-table .table-header {
+  padding: 12px 15px;
+  text-align: left;
+  background-color: #420f25;
+  color:white  ; /* Darker color for the table header background */
+}
+
+.styled-table .table-data {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #7a1949; 
+  color: black;/* Border color for table rows */
+}
+
+  .table-container {
+    max-height: 400px; /* Adjust the height as needed */
+    overflow-y: auto;
+  }
+  .inactive {
+  text-shadow: 2px 2px 4px red;
+ 
+  }
+  
+  .active {
+    text-shadow: 2px 2px 4px rgb(33, 202, 33); /* Set text color to green for active status */
+  }
