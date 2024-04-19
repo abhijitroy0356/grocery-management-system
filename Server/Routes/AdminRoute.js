@@ -44,10 +44,28 @@ router.get('/category',async (req,res)=>{
     })
 })
 router.post('/addproduct',(req,res)=>{
-    const sql="INSERT INTO product (`category`,`product_name`,`pack_size`,`mrp`,`image`,`status`) VALUES (?,?,?,?,?,?)"
-    con.query(sql,[req.body.category, req.body.productname,req.body.packsize,req.body.mrp,req.body.imginfo,req.body.status],(err,result)=>{
-        if(err){return res.json({Status:false , Error:"Wrong is query"})}
+    
+    const sql=`INSERT INTO product (product_name,pack_size,mrp,image,status,category) VALUES (?,?,?,?,?,?)`
+        // console.log([req.body.productname,req.body.packsize,req.body.mrp,req.body.imginfo,req.body.status,req.body.category])
+        // console.log(req.body)
+    con.query(sql,[req.body.productname,req.body.packsize,req.body.mrp,req.body.imginfo,req.body.status,req.body.selectCategory],(err,result)=>{
+        if(err) console.log(err)
         return res.json({Status:true})
+    })
+})
+router.get('/product',async (req,res)=>{
+    const sql=await "SELECT * FROM product"
+    con.query(sql,(err, result)=>{
+        if(err){
+            return res.json({
+                Status:false,
+                Error:"problem in query"
+            })
+        }
+        return res.json({
+            Status:true,
+            Result:result
+        })
     })
 })
 export { router as adminRouter };

@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const AddProduct = () => {
-  // const [values, setValues]=
   const [category, setCategory] = useState();
+  const [selectCategory, setSelectcategory]=useState()
   const [productname, setProductname] = useState();
   const [packsize, setPacksize] = useState();
   const [mrp, setMrp] = useState();
@@ -27,15 +27,22 @@ const AddProduct = () => {
   }, []);
   const handleSubmit=(e)=>{
     e.preventDefault()
-    axios.post("http://localhost:3000/auth/addproduct",{category,productname,packsize,mrp,imginfo,status})
-    .then(result=>(console.log(result)))
+    axios.post("http://localhost:3000/auth/addproduct",{selectCategory,productname,packsize,mrp,imginfo,status})
+    .then(result=>{
+      if(result.data.Status){
+        navigate("/dashboard/product")
+      }
+      else{
+        console.log(result.data.Error)
+      }
+    })
     .catch(err=>(console.log(err)))
 
   }
   function handleCancel() {
     navigate("/dashboard/product");
   }
- 
+ console.log(category)
   return (
     <div className="d-flex justify-content-center align-items-center h-75">
       <div className="p-1 rounded w-100">
@@ -51,6 +58,10 @@ const AddProduct = () => {
                 name="category"
                 id="category"
                 className="form-control rounded-3"
+                value={selectCategory}
+                onChange={(e)=>{
+                  setSelectcategory(e.target.value)
+                }}
               >
                 <option>Select</option>
                 {category &&
